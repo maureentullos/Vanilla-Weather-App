@@ -1,3 +1,61 @@
 h1 {
-    color: blue;
+    font-size: 36px;
 }
+
+html {
+    height: 100%;
+}
+
+
+
+body {min-height: 100%;
+   padding: 20px 20px;
+    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100% );
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+ul {
+  list-style-type: none;  
+ 
+}
+.container {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 16px;
+
+  
+}
+  .date {
+        font-size: 24px;
+        
+    }
+
+.temperature {
+    font-size: 36px;
+}
+
+.units {
+    position: relative;
+    font-size: 16px;
+    top: -14px;
+    
+}
+img {
+    float: left;
+    padding: 0 12px;
+    position: relative;
+    
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+.description {
+    text-transform: capitalize;
+   }
+   
+
+
