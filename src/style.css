@@ -33,6 +33,7 @@ ul {
 
 .temperature {
     font-size: 36px;
+
 }
 
 .units {
@@ -58,4 +59,13 @@ a:link {
    }
    
 
+   .active {
+    color: black;
+    cursor: default;
+    
+}
+.active:hover {
+
+    text-decoration: none;
+}
 
