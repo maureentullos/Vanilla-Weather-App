@@ -43,7 +43,8 @@
                 <img
                 src=""
                 alt="Partly Cloudy"
-                id = "icon" />
+                id = "icon"
+                class="main-image" />
               
     
                 <strong class ="temperature" id="temperature">87</strong> <small class="units"><a href="#" id="fahrenheit-link"class="active">°F</a> | <a href="#" id="celsius-link">°C</a> </small><br/>
@@ -66,15 +67,43 @@
                 </ul>
             </div>
         </div>
-      
-     
-   <script src ="src/app.js"></script>  
-    </div>
-       <small>
+       
+     <div class="weather-forecast">
+        <div class="row">
+            <div class="col-2">
+                <div class="weather-forecast-day">
+                    Thu <br/>
+                    <img
+                    src="https://openweathermap.org/img/wn/50d@2x.png"
+                    alt=""
+                    width = "60";
+                    />
+                    <div class=" weather-forecast-temp">
+                        <span class="weather-forecast-temp-max">
+                        89° 
+                        </span>
+                
+                        <span class="weather-forecast-temp-min">
+                        70°
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+       
+
+        </div>
+     </div>
+  
+   </div>
+      <span class="github">
+        <small>
         <a href="https://github.com/maureentullos/Vanilla-Weather-App.git"
-        target="_blank">
-        Open-source code</a>  by Maureen Tullos. 
-        </small>
-    
+        target="_blank" >
+        Open-source code</a>  by Maureen Tullos
+        
+     
+        </span> 
+     <script src ="src/app.js"></script>  
 </body>
 </html>
