@@ -23,6 +23,47 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast () {
+let forecastElement=document.querySelector("#forecast");
+
+let forecastHTML = `<div class="row">`;
+let days = ["Mon", "Tues", "Wed"];
+days.forEach(function(day) {
+forecastHTML = forecastHTML +
+  `
+    <div class="col-2">
+      <div class="weather-forecast-day">
+        ${day} <br/>
+        <img
+        src="https://openweathermap.org/img/wn/50d@2x.png"
+        alt=""
+        width = "60";
+        />
+        <div class=" weather-forecast-temp">
+          <span class="weather-forecast-temp-max">
+          89° 
+          </span>
+                  
+          <span class="weather-forecast-temp-min">
+          70°
+          </span>
+        </div>
+      </div>
+    </div>
+    `;
+
+})
+
+
+
+ 
+
+forecastHTML=forecastHTML+`</div>`;
+forecastElement.innerHTML = forecastHTML;
+console.log(forecastHTML);
+
+}
+
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
@@ -36,7 +77,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let iconElement=document.querySelector("#icon");
 
-  let fahrenheitTemperature = response.data.main.temp;
+  fahrenheitTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   cityElement.innerHTML = response.data.name;
@@ -81,6 +122,8 @@ function displayFahrenheitTemperature(event) {
 
 let fahrenheitTemperature = null;
 
+
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -92,6 +135,7 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 search("Boston");
+displayForecast();
 
 
 
