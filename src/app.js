@@ -23,8 +23,9 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast () {
-let forecastElement=document.querySelector("#forecast");
+function displayForecast (response) {
+  console.log(response.data.daily);
+  let forecastElement=document.querySelector("#forecast");
 
 let forecastHTML = `<div class="row">`;
 let days = ["Mon", "Tues", "Wed"];
@@ -55,9 +56,6 @@ forecastHTML = forecastHTML +
 })
 
 
-
- 
-
 forecastHTML=forecastHTML+`</div>`;
 forecastElement.innerHTML = forecastHTML;
 console.log(forecastHTML);
@@ -67,6 +65,14 @@ console.log(forecastHTML);
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "197ef3a642b76eef90e131866f74a0a0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&&appid=${apiKey}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -86,6 +92,9 @@ function displayTemperature(response) {
   precipitationElement.innerHTML = response.data.main.precipitation;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  getForecast(response.data.coord);
+  
 }
 function search(city){
   let apiKey = "ed53d80a50f0ade46ca93a05ecdad3fc";
@@ -135,7 +144,7 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 search("Boston");
-displayForecast();
+
 
 
 
